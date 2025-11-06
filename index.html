@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Museums of Moscow — Explore History Through Time</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Poppins',sans-serif;background:linear-gradient(120deg,#090e1d 0%,#151f3a 60%,#1d2958 100%);color:#f8f8fa;}
+    header{text-align:center;padding:70px 20px 80px;background:radial-gradient(circle at center,rgba(255,230,160,0.1),rgba(0,0,0,0.85)),url('https://upload.wikimedia.org/wikipedia/commons/d/d8/Moscow_Red_Square_night.jpg') center/cover no-repeat;color:#fff;box-shadow:0 0 40px rgba(0,0,0,.6);position:relative;}
+    header h1{font-family:'Playfair Display',serif;font-size:3em;text-shadow:0 4px 20px rgba(0,0,0,.6);} 
+    header h2{font-size:1.2em;margin-top:10px;color:#f0d47e;}
+    .group{margin-top:20px;font-weight:600;background:rgba(0,0,0,.4);display:inline-block;padding:8px 16px;border-radius:30px;border:1px solid rgba(255,255,255,.3);color:#f8e99f;}
+    .lang-switch{position:absolute;top:20px;right:20px;display:flex;gap:8px;}
+    .lang-switch button{background:rgba(255,255,255,0.2);border:none;padding:8px 14px;border-radius:6px;color:#fff;cursor:pointer;font-weight:600;transition:all .3s;}
+    .lang-switch button.active{background:#f8e99f;color:#0a0d1f;transform:scale(1.1);}
+    main{max-width:1200px;margin:auto;padding:40px 20px 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:35px;}
+    .card{background:rgba(255,255,255,0.05);border-radius:18px;overflow:hidden;position:relative;transition:transform .3s,box-shadow .3s;box-shadow:0 10px 25px rgba(0,0,0,.4);cursor:pointer;}
+    .card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 25px 45px rgba(0,0,0,.6);}
+    .card img{width:100%;height:240px;object-fit:cover;filter:brightness(0.85);transition:filter .3s;}
+    .card:hover img{filter:brightness(1);}
+    .card-content{padding:20px;}
+    .era{font-family:'Playfair Display',serif;font-size:1.3em;color:#ffd95e;margin-bottom:6px;}
+    .museum{font-weight:700;font-size:1.15em;color:#fefcf7;margin-bottom:10px;}
+    p{color:#cbd3e3;line-height:1.6;margin-bottom:10px;}
+    .location{font-size:.9em;color:#a8b2d1;font-style:italic;}
+    footer{background:#0a0d1f;text-align:center;padding:25px;color:#b3b9d4;border-top:1px solid rgba(255,255,255,0.1);}
+    [data-lang]{display:none;}
+    .lang-en [data-lang="en"],.lang-ru [data-lang="ru"]{display:block;}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+    .card{animation:fadeInUp .8s ease both;}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:opacity .3s;z-index:1000;}
+    .modal.active{opacity:1;pointer-events:auto;}
+    .modal-content{background:#121a2a;max-width:700px;padding:30px;border-radius:16px;box-shadow:0 0 30px rgba(0,0,0,.5);text-align:left;position:relative;animation:fadeInUp .4s ease both;}
+    .modal-content h3{font-family:'Playfair Display',serif;font-size:1.8em;color:#ffd95e;margin-bottom:12px;}
+    .modal-content p{color:#cbd3e3;margin-bottom:12px;line-height:1.6;}
+    .close-btn{position:absolute;top:15px;right:20px;background:transparent;border:none;color:#fff;font-size:1.5em;cursor:pointer;}
+  </style>
+</head>
+<body class="lang-en">
+  <header>
+    <div class="lang-switch">
+      <button id="enBtn" class="active">EN</button>
+      <button id="ruBtn">RU</button>
+    </div>
+    <h1>Museums of Moscow</h1>
+    <h2><span data-lang="en">Explore History Through Time</span><span data-lang="ru">Исследуйте историю во времени</span></h2>
+    <div class="group">Group: RTU MIREA – History Project Team</div>
+  </header>
+
+  <main>
+    <div class="card" data-info-en="This topic introduces history as a scientific study. The Polytechnical Museum connects to this through its exploration of human innovation, technology, and the documentation of scientific progress — crucial to understanding how we record and interpret human history." data-info-ru="Эта тема знакомит с историей как наукой. Политехнический музей связан с ней через исследования человеческих инноваций, технологий и документирование научного прогресса — важного для понимания того, как мы фиксируем и интерпретируем историю.">
+      <img src="Screenshot_6-11-2025_93638_www.bing.com.jpeg" alt="Polytechnical Museum">
+      <div class="card-content">
+        <div class="era" data-lang="en">1. History as a Science</div>
+        <div class="era" data-lang="ru">1. История как наука</div>
+        <div class="museum">Polytechnical Museum</div>
+        <p data-lang="en">A temple of human curiosity — where technology and discovery tell our shared story.</p>
+        <p data-lang="ru">Храм человеческого любопытства — где технологии и открытия рассказывают нашу общую историю.</p>
+        <div class="location">Novaya Square, 3/4, Moscow</div>
+      </div>
+    </div>
+
+    <div class="card" data-info-en="This topic focuses on ancient civilizations and the early Middle Ages. The State Historical Museum houses invaluable relics and artifacts from ancient Rus’ and early Slavic culture, connecting directly to the period discussed." data-info-ru="Эта тема посвящена древним цивилизациям и раннему Средневековью. Государственный исторический музей хранит бесценные реликвии и артефакты древней Руси и ранней славянской культуры, напрямую связанные с этой эпохой.">
+      <img src="Screenshot_6-11-2025_93813_www.bing.com.jpeg" alt="State Historical Museum">
+      <div class="card-content">
+        <div class="era" data-lang="en">2. The Ancient World & Early Middle Ages</div>
+        <div class="era" data-lang="ru">2. Мир в древности и раннем Средневековье</div>
+        <div class="museum">State Historical Museum</div>
+        <p data-lang="en">Step into the cradle of civilization — the echoes of ancient Rus’ and beyond.</p>
+        <p data-lang="ru">Войдите в колыбель цивилизации — отзвуки древней Руси и мира вокруг неё.</p>
+        <div class="location">Red Square, 1, Moscow</div>
+      </div>
+    </div>
+
+    <div class="card" data-info-en="The Museum of the History of Moscow embodies the rise of the Russian state as discussed in the formation of Rus’. Its exhibitions showcase early urban development, trade, and cultural exchanges that defined this formative era." data-info-ru="Музей истории Москвы отражает становление русского государства, о котором говорится в теме об образовании Руси. Его экспозиции демонстрируют развитие городов, торговлю и культурные обмены этого периода.">
+      <img src="Screenshot_6-11-2025_94040_www.bing.com.jpeg" alt="Museum of History of Moscow">
+      <div class="card-content">
+        <div class="era" data-lang="en">3. Formation of Rus’</div>
+        <div class="era" data-lang="ru">3. Образование государства Русь</div>
+        <div class="museum">Museum of the History of Moscow</div>
+        <p data-lang="en">Where early Moscow’s roots intertwine with the dawn of the Russian state.</p>
+        <p data-lang="ru">Где корни древней Москвы переплетаются с рассветом русского государства.</p>
+        <div class="location">Zubovsky Blvd, 2, Moscow</div>
+      </div>
+    </div>
+
+    <div class="card" data-info-en="Kolomenskoye connects with the study of Russian lands during the 13th–15th centuries. Once a royal estate, it reveals the architectural and cultural identity of medieval Rus’." data-info-ru="Коломенское связано с изучением русских земель XIII–XV веков. Это бывшая царская усадьба, отражающая архитектурную и культурную самобытность средневековой Руси.">
+      <img src="Screenshot_6-11-2025_93919_www.bing.com.jpeg" alt="Kolomenskoye Museum Reserve">
+      <div class="card-content">
+        <div class="era" data-lang="en">4. Russian Lands (13th–15th centuries)</div>
+        <div class="era" data-lang="ru">4. Русские земли в XIII–XV вв.</div>
+        <div class="museum">Kolomenskoye Museum-Reserve</div>
+        <p data-lang="en">Timeless wooden towers whisper tales of princes and faith.</p>
+        <p data-lang="ru">Вечные деревянные башни шепчут истории князей и веры.</p>
+        <div class="location">Andropova Ave, 39, Moscow</div>
+      </div>
+    </div>
+
+    <div class="card" data-info-en="The Kremlin Museums connect with the rise of the Moscow state by showcasing the political, spiritual, and cultural consolidation of Russian lands. Artifacts here mark the power of Moscow’s princes and tsars." data-info-ru="Музеи Кремля связаны со становлением Московского государства, демонстрируя политическое, духовное и культурное объединение русских земель. Здесь представлены артефакты, отражающие власть московских князей и царей.">
+      <img src="Screenshot_6-11-2025_94222_www.bing.com.jpeg" alt="Kremlin Museums">
+      <div class="card-content">
+        <div class="era" data-lang="en">5. Rise of the Moscow State</div>
+        <div class="era" data-lang="ru">5. Становление Московского государства</div>
+        <div class="museum">Kremlin Museums</div>
+        <p data-lang="en">Beyond the red walls lies the soul of Russia — power, art, and faith intertwined.</p>
+        <p data-lang="ru">За красными стенами — душа России: сила, искусство и вера, переплетённые воедино.</p>
+        <div class="location">Red Square, Moscow Kremlin</div>
+      </div>
+    </div>
+
+    <div class="card" data-info-en="The Armoury Chamber showcases Russia’s emergence on the global stage in the 16th–17th centuries. Crowns, thrones, and gifts illustrate the Tsardom’s growing international presence and cultural wealth." data-info-ru="Оружейная палата отражает выход России на мировую арену в XVI–XVII веках. Короны, троны и дары иллюстрируют растущее международное влияние и культурное богатство царской эпохи.">
+      <img src="Screenshot_6-11-2025_94330_www.bing.com.jpeg" alt="Armoury Chamber">
+      <div class="card-content">
+        <div class="era" data-lang="en">6–7. Russia & The World (16th–17th centuries)</div>
+        <div class="era" data-lang="ru">6–7. Россия и мир в XVI–XVII вв.</div>
+        <div class="museum">Armoury Chamber</div>
+        <p data-lang="en">Crowns, jewels, and golden carriages — the shimmering heritage of Tsardom.</p>
+        <p data-lang="ru">Короны, драгоценности и золотые кареты — сияющее наследие царской эпохи.</p>
+        <div class="location">Moscow Kremlin</div>
+      </div>
+    </div>
+
+    <div class="card" data-info-en="Tsaritsyno embodies 18th-century Russia and enlightened absolutism under Catherine the Great. It reveals her vision of beauty and power — blending art, architecture, and imperial ideology." data-info-ru="Царицыно олицетворяет Россию XVIII века и эпоху Просвещенного абсолютизма Екатерины Великой. Здесь воплощено её видение красоты и власти — синтез искусства, архитектуры и имперской идеологии.">
+      <img src="Screenshot_6-11-2025_94543_www.bing.com.jpeg" alt="Tsaritsyno Museum Reserve">
+      <div class="card-content">
+        <div class="era" data-lang="en">8–10. 18th Century & Enlightened Absolutism</div>
+        <div class="era" data-lang="ru">8–10. XVIII век и Просвещённый абсолютизм</div>
+        <div class="museum">Tsaritsyno Museum-Reserve</div>
+        <p data-lang="en">A palace of dreams built by Catherine the Great — where art met empire.</p>
+        <p data-lang="ru">Дворец мечтаний Екатерины Великой — где искусство встретилось с империей.</p>
+        <div class="location">Dolskaya St, 1, Moscow</div>
+      </div>
+    </div>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">×</button>
+      <h3 id="modal-title"></h3>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+
+  <footer>
+    Created by Evans Chauke · Group: RTU MIREA – History Project Team · 2025
+  </footer>
+
+  <script>
+    const enBtn=document.getElementById('enBtn');
+    const ruBtn=document.getElementById('ruBtn');
+    enBtn.onclick=()=>{document.body.className='lang-en';enBtn.classList.add('active');ruBtn.classList.remove('active');};
+    ruBtn.onclick=()=>{document.body.className='lang-ru';ruBtn.classList.add('active');enBtn.classList.remove('active');};
+
+    const cards=document.querySelectorAll('.card');
+    const modal=document.getElementById('modal');
+    const modalTitle=document.getElementById('modal-title');
+    const modalDesc=document.getElementById('modal-desc');
+    const closeModal=document.getElementById('closeModal');
+
+    cards.forEach(card=>{
+      card.addEventListener('click',()=>{
+        const isRu=document.body.classList.contains('lang-ru');
+        modal.classList.add('active');
+        modalTitle.textContent=card.querySelector('.museum').textContent;
+        modalDesc.textContent=isRu?card.getAttribute('data-info-ru'):card.getAttribute('data-info-en');
+      });
+    });
+
+    closeModal.addEventListener('click',()=>modal.classList.remove('active'));
+    modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('active');});
+  </script>
+</body>
+</html>
